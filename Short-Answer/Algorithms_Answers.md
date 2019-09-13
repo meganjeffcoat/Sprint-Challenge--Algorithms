@@ -2,7 +2,7 @@
 
 ## Exercise I
 
-a) O(n^1) - n is growing linearly in this snippet. n grows at a rate of n^3 while a is growing at a rate of n^2
+a) O(n) - n is growing linearly in this snippet.
 n is the make or break in this snippet. As n grows so does the runtime
 
 b) O(n^2) - There are 2 loops in this snippet. Each loop is an O(n), they get multiplied together to get the O(n^2) runtime. n is being checked twice.
