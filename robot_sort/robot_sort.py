@@ -106,8 +106,8 @@ class SortingRobot:
             # Move to left to drop value.
             # done comparing and swapping at current position.
                 # Move to right
-            # If no values were swapped, then dong sorting
-            # run the same above alogrithm, this time left to right.
+            # If no values were swapped, then done sorting
+            # run the same alogrithm, this time left to right.
             self.set_light_off()
 
             while self.can_move_right():
