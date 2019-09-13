@@ -100,28 +100,48 @@ class SortingRobot:
         """
         # Fill this out
         while True:
-            # set up initial starting point
-            self.swap_item()
-            self.move_right()
+            # Turn off light to start with
+            # Pick up item at current position and move right
+            # If this position is lower that what holding now, swap it
+            # Move to left to drop value.
+            # done comparing and swapping at current position.
+                # Move to right
+            # If no values were swapped, then dong sorting
+            # run the same above alogrithm, this time left to right.
+            self.set_light_off()
 
-            if self.compare_item() == 1:  #compare current item to 1 then do the following:
+            while self.can_move_right():
                 self.swap_item()
+                self.move_right()
+
+                if self.compare_item() == 1:
+                    self.swap_item()
+                    self.set_light_on()
                 self.move_left()
                 self.swap_item()
                 self.move_right()
-                self.set_light_on()
-            else:                       # the compare item is not 1 then do the following:
-                self.move_left()
-                self.swap_item()
-                self.move_right()
 
-            if not self.can_move_right(): #if cannot move right
-                if not self.light_is_on(): # if light is not on
-                    break  
-                else:
-                    while self.can_move_left():
-                        self.move_left()
-                    self.set_light_off()
+            if self.light_is_on() == False:
+                return
+
+            self.set_light_off()
+
+            self.move_left()
+            while self.can_move_left():
+                self.swap_item()
+                self.move_left()
+
+                if self.compare_item() == -1:
+                    self.swap_item()
+                    self.set_light_on()
+
+                self.move_right()
+                self.swap_item()
+
+                self.move_left()
+
+            if self.light_is_on() == False:
+                return
 
 
 if __name__ == "__main__":
